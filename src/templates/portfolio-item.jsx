@@ -3,7 +3,6 @@ import Img from "gatsby-image"
 import React from "react"
 import SiteMetadata from "../components/SiteMetadata"
 import Button from "../components/Button"
-import Cards from "../components/Cards"
 import Carousel from "../components/Carousel"
 import Newsletter from "../components/Newsletter"
 import Layout from "../layouts/Layout"
@@ -13,7 +12,6 @@ export default props => {
     description,
     gallery,
     name,
-    related,
     summary,
     thumbnail,
     url,
@@ -59,16 +57,6 @@ export default props => {
           </div>
         </div>
       </div>
-      {related && (
-        <div className="bg-gray-100 py-12 lg:py-16">
-          <div className="container">
-            <h2 className="text-3xl sm:text-4xl leading-tight font-extrabold tracking-tight text-gray-900 mb-8">
-              You may also like
-            </h2>
-          </div>
-          <Cards items={related} hideLastItemOnMobile={true} />
-        </div>
-      )}
       <Newsletter />
     </Layout>
   )
@@ -92,9 +80,6 @@ export const query = graphql`
         title
       }
       name
-      related {
-        ...PortfolioCard
-      }
       summary
       thumbnail {
         localFile {
